@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Neutron Academy — أكاديمية نيوترون لتعليم اللغة الإنجليزية بالعربية. كورسات تفاعلية مبتكرة للمراحل الابتدائية والإعدادية والثانوية.">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Neutron Academy — أكاديمية نيوترون">
+  <meta property="og:description" content="أكاديمية نيوترون لتعليم اللغة الإنجليزية بالعربية. كورسات تفاعلية مبتكرة للمراحل الابتدائية والإعدادية والثانوية.">
+  <meta property="og:image" content="https://neutron-nu.vercel.app/assets/images/logo.png">
+  <meta property="og:url" content="https://neutron-nu.vercel.app">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neutron Academy — أكاديمية نيوترون">
+  <meta name="twitter:description" content="أكاديمية نيوترون لتعليم اللغة الإنجليزية بالعربية. كورسات تفاعلية مبتكرة للمراحل الابتدائية والإعدادية والثانوية.">
+  <meta name="twitter:image" content="https://neutron-nu.vercel.app/assets/images/logo.png">
+
+  <title>Neutron Academy — أكاديمية نيوترون</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-brand">
+      <img src="assets/images/logo.png" alt="Neutron Academy Logo" class="lightbox-trigger">
+      <h1>Neutron Academy</h1>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">الرئيسية</a>
+      <a href="#courses">الكورسات</a>
+      <a href="#features">المميزات</a>
+      <a href="#contact">تواصل معنا</a>
+      <a href="login.html" class="nav-login"><i class="fas fa-user-circle"></i> دخول</a>
+      <a href="#courses" class="nav-cta">ابدأ التعلم</a>
+    </div>
+    <div class="nav-partners">
+      <img src="assets/images/logo-damietta.jpg?v=4" alt="Damietta University" class="lightbox-trigger">
+      <img src="assets/images/logo-education.jpg?v=4" alt="Faculty of Education" class="lightbox-trigger">
+      <img src="assets/images/logo-techno.jpg?v=4" alt="Educational Technology" class="lightbox-trigger">
+    </div>
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="home">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-shapes">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-rocket"></i>
+        <span>الترم الثاني — 2025/2026</span>
+      </div>
+      <h2>
+        تعلّم الإنجليزية بطريقة
+        <br>
+        <span class="gradient-text">تفاعلية ومبتكرة</span>
+      </h2>
+      <p>
+        أكاديمية نيوترون تقدم لك كورسات إنجليزي شاملة بشرح عربي سهل وممتع.
+        <br>
+        مصممة خصيصاً لطلاب الصف السادس الابتدائي والثاني الإعدادي والأول الثانوي.
+      </p>
+      <div class="hero-buttons">
+        <a href="#courses" class="btn-primary">
+          <i class="fas fa-play-circle"></i>
+          استكشف الكورسات
+        </a>
+        <a href="#features" class="btn-secondary">
+          <i class="fas fa-info-circle"></i>
+          لماذا نيوترون؟
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ STATS ═══════════ -->
+  <div class="stats-strip">
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="3" data-suffix="">0</div>
+      <div class="stat-label">مراحل دراسية</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="100" data-suffix="+">0</div>
+      <div class="stat-label">درس تفاعلي</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="500" data-suffix="+">0</div>
+      <div class="stat-label">طالب مستفيد</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="24" data-suffix="/7">0</div>
+      <div class="stat-label">متاح دائماً</div>
+    </div>
+  </div>
+
+  <!-- ═══════════ TEAM ═══════════ -->
+  <section class="section" id="team">
+    <div class="section-header reveal">
+      <div class="section-tag">👥 فريق العمل</div>
+      <h2>تعرف على عائلة نيوترون</h2>
+      <p>نخبة من المتميزين لضمان تقديم أفضل تجربة تعليمية</p>
+    </div>
+
+    <div class="team-grid">
+      <!-- Team Member 1 -->
+      <div class="team-card reveal">
+        <div class="team-img" id="img-mushad1">
+          <div class="team-img-inner lightbox-trigger">
+            <img src="assets/images/team-osama-new.jpg?v=3" alt="أسامة أيمن المشد" style="object-fit: cover; object-position: center 20%; transform: scale(1.6) translateY(5%);">
+          </div>
+        </div>
+        <h3>أسامة أيمن المشد</h3>
+        <p>مؤسس / مطور</p>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="team-card reveal">
+        <div class="team-img" id="img-aswad">
+          <div class="team-img-inner lightbox-trigger">
+            <img src="assets/images/team-ahmed-essam.jpg" alt="أحمد عصام الأسود" style="object-fit: cover; object-position: center 40%; transform: scale(3) translateY(-5%);">
+          </div>
+        </div>
+        <h3>أحمد عصام الأسود</h3>
+        <p>منسق المحتوى</p>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-card reveal">
+        <div class="team-img" id="img-mushad2">
+          <div class="team-img-inner lightbox-trigger">
+            <img src="assets/images/team-ahmed-tarek.jpg" alt="أحمد طارق المشد" style="object-fit: cover; object-position: center 15%; transform: scale(3.5) translateY(35%);">
+          </div>
+        </div>
+        <h3>أحمد طارق المشد</h3>
+        <p>مصمم السيناريو</p>
+      </div>
+    </div>
+
+    <!-- Supervisors -->
+    <div class="supervisors-header reveal">
+      <h3>تحت إشراف</h3>
+    </div>
+    
+    <div class="supervisors-grid">
+      <div class="supervisor-card reveal">
+        <div class="supervisor-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h3>أ.د/محمد شمة</h3>
+      </div>
+
+      <div class="supervisor-card reveal">
+        <div class="supervisor-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h3>م/غادة المتولي</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ COURSES ═══════════ -->
+  <section class="section" id="courses">
+    <div class="section-header reveal">
+      <div class="section-tag">📚 الكورسات المتاحة</div>
+      <h2>اختر مرحلتك الدراسية</h2>
+      <p>كورسات تفاعلية مصممة بعناية لكل مرحلة دراسية — ابدأ رحلتك الآن</p>
+    </div>
+
+    <div class="courses-grid">
+      <!-- Course 1: Grade 6 Primary -->
+      <div class="course-card reveal" onclick="window.location.href='course.html?grade=6'">
+        <div class="course-cover">
+          <img src="assets/images/cover-grade6.png" alt="كورس الصف السادس الابتدائي">
+          <div class="course-cover-overlay"></div>
+          <span class="course-badge badge-primary">ابتدائي</span>
+          <span class="course-term">الترم الثاني</span>
+        </div>
+        <div class="course-info">
+          <h3>الصف السادس الابتدائي</h3>
+          <p class="course-description">كورس شامل لمنهج الإنجليزي للصف السادس الابتدائي — شرح مبسط بالعربي مع تمارين تفاعلية</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <i class="fas fa-book-open"></i>
+              <span>وحدات متعددة</span>
+            </div>
+            <a href="course.html?grade=6" class="course-enter">
+              ادخل الكورس
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2: Grade 8 Prep -->
+      <div class="course-card reveal" onclick="window.location.href='course.html?grade=8'">
+        <div class="course-cover">
+          <img src="assets/images/cover-grade8.png" alt="كورس الصف الثاني الإعدادي">
+          <div class="course-cover-overlay"></div>
+          <span class="course-badge badge-prep">إعدادي</span>
+          <span class="course-term">الترم الثاني</span>
+        </div>
+        <div class="course-info">
+          <h3>الصف الثاني الإعدادي</h3>
+          <p class="course-description">كورس متكامل لمنهج الإنجليزي للصف الثاني الإعدادي — محتوى غني وتفاعلي بشرح عربي واضح</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <i class="fas fa-book-open"></i>
+              <span>وحدات متعددة</span>
+            </div>
+            <a href="course.html?grade=8" class="course-enter">
+              ادخل الكورس
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3: Grade 10 Secondary -->
+      <div class="course-card reveal" onclick="window.location.href='course.html?grade=10'">
+        <div class="course-cover">
+          <img src="assets/images/cover-grade10.png" alt="كورس الصف الأول الثانوي">
+          <div class="course-cover-overlay"></div>
+          <span class="course-badge badge-secondary">ثانوي</span>
+          <span class="course-term">الترم الثاني</span>
+        </div>
+        <div class="course-info">
+          <h3>الصف الأول الثانوي</h3>
+          <p class="course-description">كورس احترافي لمنهج الإنجليزي للصف الأول الثانوي — إعداد قوي وشامل لتحقيق التفوق</p>
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <i class="fas fa-book-open"></i>
+              <span>وحدات متعددة</span>
+            </div>
+            <a href="course.html?grade=10" class="course-enter">
+              ادخل الكورس
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FEATURES ═══════════ -->
+  <section class="section" id="features" style="background: var(--bg-secondary);">
+    <div class="section-header reveal">
+      <div class="section-tag">✨ لماذا نيوترون؟</div>
+      <h2>مميزات تجعلنا مختلفين</h2>
+      <p>نقدم تجربة تعليمية فريدة تجمع بين المتعة والفائدة</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <i class="fas fa-language"></i>
+        </div>
+        <h3>شرح بالعربي</h3>
+        <p>كل الدروس مشروحة بالعربي بطريقة سهلة ومبسطة تناسب جميع المستويات</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <h3>تعلم تفاعلي</h3>
+        <p>محتوى تفاعلي وتمارين عملية تجعل التعلم ممتعاً وفعالاً</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>تقييم شامل</h3>
+        <p>اختبارات قبلية وبعدية لقياس مستوى التقدم وتحديد نقاط القوة والضعف</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>متوافق مع الأجهزة</h3>
+        <p>تصفح الكورسات من أي جهاز — كمبيوتر، تابلت، أو موبايل</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <i class="fas fa-infinity"></i>
+        </div>
+        <h3>وصول غير محدود</h3>
+        <p>ادخل الكورس في أي وقت وأعد مشاهدة الدروس بلا حدود</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>منهج معتمد</h3>
+        <p>محتوى مطابق تماماً للمنهج الدراسي الرسمي للترم الثاني</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg"></div>
+    <div class="cta-content reveal">
+      <h2>جاهز تبدأ رحلة التعلم؟ 🚀</h2>
+      <p>انضم لمئات الطلاب اللي بدأوا يطوروا مستواهم في الإنجليزي مع أكاديمية نيوترون</p>
+      <a href="#courses" class="btn-primary">
+        <i class="fas fa-rocket"></i>
+        ابدأ الآن مجاناً
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#" class="nav-brand">
+          <img src="assets/images/logo.png" alt="Neutron Academy">
+          <h1>Neutron Academy</h1>
+        </a>
+        <p>أكاديمية نيوترون — وجهتك الأولى لتعلم الإنجليزي بالعربي. نقدم كورسات تفاعلية مبتكرة لجميع المراحل الدراسية.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/18PbR1aUDL/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com/@osospiracy5468?si=_SKB4Z-yZtEt14L-" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/201011868045" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/in/osama-almashad-9324b3340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>الكورسات</h4>
+        <a href="course.html?grade=6">الصف السادس الابتدائي</a>
+        <a href="course.html?grade=8">الصف الثاني الإعدادي</a>
+        <a href="course.html?grade=10">الصف الأول الثانوي</a>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <a href="#home">الرئيسية</a>
+        <a href="#courses">الكورسات</a>
+        <a href="#features">المميزات</a>
+        <a href="#contact">تواصل معنا</a>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <a href="#"><i class="fas fa-envelope"></i> info@neutron-academy.com</a>
+        <a href="https://wa.me/201011868045" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+        <a href="https://www.facebook.com/share/18PbR1aUDL/" target="_blank"><i class="fab fa-facebook"></i> فيسبوك</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>Neutron Academy</span>. جميع الحقوق محفوظة 🌹</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════ LIGHTBOX MODAL ═══════════ -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></div>
+    <img class="lightbox-content" id="lightboxImg">
+  </div>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

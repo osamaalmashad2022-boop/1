@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neutron Academy — كورس تفاعلي لتعليم اللغة الإنجليزية بالعربية">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Neutron Academy — الكورس">
+    <meta property="og:description" content="كورس تفاعلي لتعليم اللغة الإنجليزية بالعربية">
+    <meta property="og:image" content="https://neutron-nu.vercel.app/assets/images/logo.png">
+    <meta property="og:url" content="https://neutron-nu.vercel.app">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Neutron Academy — الكورس">
+    <meta name="twitter:description" content="كورس تفاعلي لتعليم اللغة الإنجليزية بالعربية">
+    <meta name="twitter:image" content="https://neutron-nu.vercel.app/assets/images/logo.png">
+
+    <title>Neutron Academy — الكورس</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Lesson Modal */
+        .lesson-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-modal.active {
+            display: flex;
+        }
+
+        .lesson-modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        .lesson-modal-content {
+            position: relative;
+            width: 95vw;
+            max-width: 1300px;
+            height: 85vh;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 60px rgba(6, 182, 212, 0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .lesson-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(10, 14, 26, 0.6);
+        }
+
+        .lesson-modal-header h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lesson-modal-close {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-modal-close:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .lesson-modal-body {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .lesson-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="assets/images/logo.png" alt="Neutron Academy Logo" class="lightbox-trigger">
+            <h1>Neutron Academy</h1>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">الرئيسية</a>
+            <a href="index.html#courses">الكورسات</a>
+            <a href="index.html#features">المميزات</a>
+            <a href="index.html#contact">تواصل معنا</a>
+            <a href="login.html" class="nav-login"><i class="fas fa-user-circle"></i> دخول</a>
+        </div>
+        <div class="nav-partners">
+            <img src="assets/images/logo-damietta.jpg?v=4" alt="Damietta University" class="lightbox-trigger">
+            <img src="assets/images/logo-education.jpg?v=4" alt="Faculty of Education" class="lightbox-trigger">
+            <img src="assets/images/logo-techno.jpg?v=4" alt="Educational Technology" class="lightbox-trigger">
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ═══════════ COURSE HERO ═══════════ -->
+    <section class="course-page-hero" id="courseHero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-shapes">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+        </div>
+        <div class="course-hero-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                العودة للرئيسية
+            </a>
+            <h1 id="courseTitle">الصف السادس الابتدائي</h1>
+            <div class="course-hero-grade" id="courseGrade">المرحلة الابتدائية — الترم الثاني</div>
+            <p class="course-hero-desc" id="courseDesc">كورس شامل لمنهج اللغة الإنجليزية — شرح مبسط بالعربي مع تمارين
+                تفاعلية واختبارات تقييمية</p>
+        </div>
+    </section>
+
+    <!-- ═══════════ COURSE CONTENT ═══════════ -->
+    <div class="course-content">
+
+        <!-- Tests -->
+        <div class="tests-section reveal">
+            <div class="test-card pre-test" id="preTestCard">
+                <div class="test-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>الاختبار القبلي</h3>
+                <p>قيّم مستواك قبل بدء الكورس</p>
+            </div>
+            <div class="test-card post-test" id="postTestCard">
+                <div class="test-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>الاختبار البعدي</h3>
+                <p>اختبر نفسك بعد انتهاء الكورس</p>
+            </div>
+        </div>
+
+        <!-- Units -->
+        <div class="units-header reveal">
+            <h2>📖 وحدات الكورس</h2>
+            <span class="units-count" id="unitsCount">0 وحدات</span>
+        </div>
+
+        <div class="units-list" id="unitsList">
+            <!-- Units will be injected dynamically by JS -->
+        </div>
+
+    </div>
+
+    <!-- ═══════════ LESSON MODAL ═══════════ -->
+    <div class="lesson-modal" id="lessonModal">
+        <div class="lesson-modal-overlay" onclick="closeLessonModal()"></div>
+        <div class="lesson-modal-content">
+            <div class="lesson-modal-header">
+                <h3 id="lessonModalTitle">الوحدة</h3>
+                <button class="lesson-modal-close" onclick="closeLessonModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lesson-modal-body">
+                <iframe id="lessonIframe" src="" allow="fullscreen" title="Mindsmith Lesson Player"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img src="assets/images/logo.png" alt="Neutron Academy">
+                    <h1>Neutron Academy</h1>
+                </a>
+                <p>أكاديمية نيوترون — وجهتك الأولى لتعلم الإنجليزي بالعربي.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/18PbR1aUDL/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@osospiracy5468?si=_SKB4Z-yZtEt14L-" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/201011868045" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/osama-almashad-9324b3340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>الكورسات</h4>
+                <a href="course.html?grade=6">الصف السادس الابتدائي</a>
+                <a href="course.html?grade=8">الصف الثاني الإعدادي</a>
+                <a href="course.html?grade=10">الصف الأول الثانوي</a>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <a href="index.html">الرئيسية</a>
+                <a href="index.html#courses">الكورسات</a>
+                <a href="index.html#features">المميزات</a>
+            </div>
+            <div class="footer-col">
+                <h4>تواصل معنا</h4>
+                <a href="#"><i class="fas fa-envelope"></i> info@neutron-academy.com</a>
+                <a href="https://wa.me/201011868045" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 <span>Neutron Academy</span>. جميع الحقوق محفوظة 🌹</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════ LIGHTBOX MODAL ═══════════ -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></div>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Course Page Logic -->
+    <script>
+        // ── Course Data ──
+        const courseData = {
+            '6': {
+                title: 'الصف السادس الابتدائي',
+                grade: 'المرحلة الابتدائية — الترم الثاني',
+                desc: 'كورس تفاعلي كامل لمنهج اللغة الإنجليزية للصف السادس الابتدائي — الترم الثاني. يتميز بشرح مبسط، التدريب على أسئلة الامتحانات، وتطوير مهارات القراءة والاستماع.',
+                preTestUrl: 'https://app.mindsmith.ai/learn/cmmm6puc000fnl604f5gs9dpn',
+                postTestUrl: 'https://app.mindsmith.ai/learn/cmmm6puc000fnl604f5gs9dpn',
+                units: [
+                    { name: 'Unit 1: Celebrating Creativity', title: 'الوحدة الأولى: الاحتفال بالإبداع', url: 'https://app.mindsmith.ai/learn/cmmjecr4k00cukz046ziwsc0f', cover: 'assets/images/unit1-creativity.png' },
+                    { name: 'Unit 2: Wonderful Inventions', title: 'الوحدة الثانية: الاختراعات الرائعة', url: 'https://app.mindsmith.ai/learn/cmmj7uz0g01tjjp047n97d2iq', cover: 'assets/images/unit2-inventions.png' },
+                    { name: 'Unit 3: Hidden Gems of Egypt', title: 'الوحدة الثالثة: جواهر مصر الخفية', url: 'https://app.mindsmith.ai/learn/cmmj89bir02szl204i9cathje', cover: 'assets/images/unit4-egypt.png' },
+                    { name: 'Unit 4: Egypt on the Move', title: 'الوحدة الرابعة: مصر في حركة', url: 'https://app.mindsmith.ai/learn/cmmjg0zah00ivjj04vdwz4u9d', cover: 'assets/images/unit4-egypt-on-the-move.png' },
+                    { name: 'Unit 5: Safe and Smart Transportation', title: 'الوحدة الخامسة: النقل الآمن والذكي', url: 'https://app.mindsmith.ai/learn/cmmjkqlk801gzjp04v8i0g41n', cover: 'assets/images/unit5-smart-transport.png' },
+                    { name: 'Unit 6: The Library That Time Forgot', title: 'الوحدة 6: المكتبة التي نسيها الزمن', url: 'https://app.mindsmith.ai/learn/cmmjl705b00qflb046ljpqi1v', cover: 'assets/images/unit6-library.png' },
+                    { name: 'Final Review', title: 'المراجعة النهائية', url: 'https://app.mindsmith.ai/learn/cmmjlzglk009oji048d8na93e', cover: 'assets/images/unit7-review.png' },
+                ],
+            },
+            '8': {
+                title: 'الصف الثاني الإعدادي',
+                grade: 'المرحلة الإعدادية — الترم الثاني',
+                desc: 'كورس متكامل لمنهج اللغة الإنجليزية للصف الثاني الإعدادي — محتوى غني وتفاعلي بشرح عربي واضح',
+                preTestUrl: 'https://app.mindsmith.ai/learn/cmmqbbwxu01bpjo040hjv3t5d',
+                postTestUrl: 'https://app.mindsmith.ai/learn/cmmqbbwxu01bpjo040hjv3t5d',
+                units: [
+                    { name: 'Unit 7: My School Life', title: 'الوحدة السابعة: حياتي المدرسية', url: 'https://app.mindsmith.ai/learn/cmmjoxm8j02edlh04aom2evie', cover: 'assets/images/unit7-school-life.png' },
+                    { name: 'Unit 8: Learn Smart, Learn Easy', title: 'الوحدة 8: تعلم بذكاء، تعلم بسهولة', url: 'https://app.mindsmith.ai/learn/cmmkkkgy406i7lb04jr7bkz0w', cover: 'assets/images/unit8-learn-smart.png' },
+                    { name: 'Unit 9: Jobs & Skills', title: 'الوحدة 9: الوظائف والمهارات', url: 'https://app.mindsmith.ai/learn/cmmjo69ro00u6lh04hew541hg', cover: 'assets/images/unit9-jobs-skills.png' },
+                    { name: 'Unit 10: Story Telling', title: 'الوحدة 10: رواية القصص', url: 'https://app.mindsmith.ai/learn/cmmko40ic04i6jy043l1z8dkd', cover: 'assets/images/unit10-storytelling.png' },
+                    { name: 'Unit 11: Life in the Desert', title: 'الوحدة 11: الحياة في الصحراء', url: 'https://app.mindsmith.ai/learn/cmmkpxv1v00mhl704cjwz52kx', cover: 'assets/images/unit11-desert-life.png' },
+                    { name: 'Unit 12: Our Incredible Earth', title: 'الوحدة 12: أرضنا المذهلة', url: 'https://app.mindsmith.ai/learn/cmmkri9i5026ajp04hw2vhx99', cover: 'assets/images/unit12-earth.png' },
+                    { name: 'Final Review', title: 'المراجعة النهائية', url: 'https://app.mindsmith.ai/learn/cmml1bnma00mykz04dqifj6pl', cover: 'assets/images/unit7-review.png' },
+                ],
+            },
+            '10': {
+                title: 'الصف الأول الثانوي',
+                grade: 'المرحلة الثانوية — الترم الثاني',
+                desc: 'كورس احترافي لمنهج اللغة الإنجليزية للصف الأول الثانوي — إعداد قوي وشامل لتحقيق التفوق',
+                preTestUrl: 'https://app.mindsmith.ai/learn/cmmqcuhtx038jjo04vg9s20a0',
+                postTestUrl: 'https://app.mindsmith.ai/learn/cmmqcuhtx038jjo04vg9s20a0',
+                units: [
+                    { name: 'Unit 7: The Daily Beat of Different Lands', title: 'الوحدة السابعة: إيقاع الحياة اليومية في بلدان مختلفة', url: 'https://app.mindsmith.ai/learn/cmml23pct01vmjo04mpggsgnf', cover: 'assets/images/grade10-unit1-daily-beat.png' },
+                    { name: 'Unit 8: Building Bridges with Words', title: 'الوحدة الثامنة: بناء جسور بالكلمات', url: 'https://app.mindsmith.ai/learn/cmml3hv5r00w4l504yj63sa45', cover: 'assets/images/grade10-unit8-bridges.png' },
+                    { name: 'Unit 9: Building a Better Future', title: 'الوحدة 9: بناء مستقبل أفضل', url: 'https://app.mindsmith.ai/learn/cmml5l1f90204l404w7lmf7ot', cover: 'assets/images/grade10-unit9-future.png' },
+                    { name: 'Unit 10: Shopping and Money', title: 'الوحدة 10: التسوق والمال', url: 'https://app.mindsmith.ai/learn/cmmlxqkt200o9jo04m6tywd06', cover: 'assets/images/grade10-unit10-shopping.png' },
+                    { name: 'Unit 11: Food & Culture', title: 'الوحدة 11: الطعام والثقافة', url: 'https://app.mindsmith.ai/learn/cmmlyuuh604ajla04223jz6o5', cover: 'assets/images/grade10-unit11-food.png' },
+                    { name: 'Unit 12: People and Places', title: 'الوحدة 12: الناس والأماكن', url: 'https://app.mindsmith.ai/learn/cmmm0jqv902ajl9043su2ip8b', cover: 'assets/images/grade10-unit12-people.png' },
+                    { name: 'Story: The Old Man and The Sea', title: 'القصة: الشيخ والبحر', url: 'https://app.mindsmith.ai/learn/cmmm1hfsz00nsjo049evachdi', cover: 'assets/images/grade10-story-oldman.png' },
+                    { name: 'Final Review: Secondary One - Term 2', title: 'المراجعة النهائية: الصف الأول الثانوي - الفصل الدراسي الثاني', url: 'https://app.mindsmith.ai/learn/cmmm2lzhv04agk504te2xzvqt', cover: 'assets/images/unit7-review.png' },
+                ],
+            },
+        };
+
+        // ── Load Course ──
+        function loadCourse() {
+            const params = new URLSearchParams(window.location.search);
+            const grade = params.get('grade') || '6';
+            const course = courseData[grade];
+
+            if (!course) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Update hero
+            document.getElementById('courseTitle').textContent = course.title;
+            document.getElementById('courseGrade').textContent = course.grade;
+            document.getElementById('courseDesc').textContent = course.desc;
+            document.title = `Neutron Academy — ${course.title}`;
+
+            // Update units count
+            document.getElementById('unitsCount').textContent = `${course.units.length} وحدات`;
+
+            // Render units
+            const unitsList = document.getElementById('unitsList');
+            unitsList.innerHTML = '';
+            course.units.forEach((unit, index) => {
+                const card = document.createElement('div');
+                card.className = 'unit-card reveal';
+                card.innerHTML = `
+          <div class="unit-card-header">
+             ${unit.cover ? `<img src="${unit.cover}" alt="${unit.name}" class="unit-cover-img">` : `<div class="unit-cover-placeholder"><div class="unit-number">${index + 1}</div></div>`}
+             <div class="unit-status">
+               ${unit.url ? '<div class="status-badge available"><i class="fas fa-play"></i> متاح الآن</div>' : '<div class="status-badge locked"><i class="fas fa-lock"></i> قريباً</div>'}
+             </div>
+          </div>
+          <div class="unit-info">
+            <h3>${unit.name}</h3>
+            <p>${unit.title}</p>
+          </div>
+        `;
+                card.addEventListener('click', () => {
+                    if (unit.url) {
+                        openLessonModal(unit.name + ' — ' + unit.title, unit.url);
+                    } else {
+                        alert('سيتم إضافة محتوى هذه الوحدة قريباً! 🚀');
+                    }
+                });
+                unitsList.appendChild(card);
+            });
+
+            // Re-init scroll reveal for dynamically added elements
+            setTimeout(() => {
+                initScrollReveal();
+            }, 100);
+
+            // Setup Pre/Post test click handlers based on loaded course
+            const preTestCard = document.getElementById('preTestCard');
+            preTestCard.onclick = () => {
+                if (course.preTestUrl) {
+                    openLessonModal('الاختبار القبلي', course.preTestUrl);
+                } else {
+                    alert('سيتم ربط الاختبار القبلي قريباً! 📝');
+                }
+            };
+
+            const postTestCard = document.getElementById('postTestCard');
+            postTestCard.onclick = () => {
+                if (course.postTestUrl) {
+                    openLessonModal('الاختبار البعدي', course.postTestUrl);
+                } else {
+                    alert('سيتم ربط الاختبار البعدي قريباً! 🏆');
+                }
+            };
+        }
+
+        // ── Lesson Modal Functions ──
+        function openLessonModal(title, url) {
+            document.getElementById('lessonModalTitle').textContent = title;
+            document.getElementById('lessonIframe').src = url;
+            document.getElementById('lessonModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLessonModal() {
+            document.getElementById('lessonModal').classList.remove('active');
+            document.getElementById('lessonIframe').src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLessonModal();
+        });
+
+        document.addEventListener('DOMContentLoaded', loadCourse);
+    </script>
+</body>
+
+</html>

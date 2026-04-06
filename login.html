@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تسجيل الدخول إلى أكاديمية نيوترون — ابدأ رحلتك التعليمية الآن.">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="تسجيل الدخول — Neutron Academy">
+  <meta property="og:description" content="تسجيل الدخول إلى أكاديمية نيوترون — ابدأ رحلتك التعليمية الآن.">
+  <meta property="og:image" content="https://neutron-nu.vercel.app/assets/images/logo.png">
+  <meta property="og:url" content="https://neutron-nu.vercel.app">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="تسجيل الدخول — Neutron Academy">
+  <meta name="twitter:description" content="تسجيل الدخول إلى أكاديمية نيوترون — ابدأ رحلتك التعليمية الآن.">
+  <meta name="twitter:image" content="https://neutron-nu.vercel.app/assets/images/logo.png">
+
+  <title>تسجيل الدخول — Neutron Academy</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+
+  <!-- Background Animated Shapes -->
+  <div class="auth-bg-shapes">
+    <div class="shape shape-cyan"></div>
+    <div class="shape shape-purple"></div>
+    <div class="shape shape-pink"></div>
+  </div>
+
+  <!-- Go Home Link -->
+  <a href="index.html" class="auth-home-link">
+    <i class="fas fa-arrow-right"></i>
+    <span>الرئيسية</span>
+  </a>
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="assets/images/logo.png" alt="Neutron Academy" class="auth-logo">
+        <h2>أهلاً بك مجدداً</h2>
+        <p>قم بتسجيل الدخول لمتابعة دروسك</p>
+      </div>
+
+      <form class="auth-form" action="#" method="POST">
+        <!-- Username / Email -->
+        <div class="form-group">
+          <label for="identity">اسم المستخدم أو البريد</label>
+          <div class="input-wrapper">
+            <input type="text" id="identity" name="identity" placeholder="أدخل اسم المستخدم أو البريد" required>
+            <i class="fas fa-envelope"></i>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">كلمة المرور</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+            <i class="fas fa-lock"></i>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="auth-options">
+          <label class="remember-me">
+            <input type="checkbox" name="remember">
+            <span>تذكرني</span>
+          </label>
+          <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-auth">تسجيل الدخول</button>
+      </form>
+
+      <div class="auth-footer">
+        ليس لديك حساب؟
+        <a href="signup.html">إنشاء حساب جديد</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three.js CDN (optional for extra depth) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Basic JS for form animations -->
+  <script>
+    // Reveal animation on scroll or load
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Login page loaded');
+    });
+  </script>
+</body>
+</html>
